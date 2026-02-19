@@ -8,12 +8,30 @@
 <h2>Payment Successful ✅</h2>
 <p>Your download will start automatically...</p>
 
-<a id="downloadBtn" href="https://drive.google.com/file/d/1_jgHEhCRVnjbwL8l9BIbcH--Nal-D-gn/view?usp=sharing" download></a>
-
 <script>
-window.onload = function() {
-document.getElementById("downloadBtn").click();
+
+// URL se course name lo
+const params = new URLSearchParams(window.location.search);
+const course = params.get("course");
+
+// Drive links yaha daalo
+const pdfLinks = {
+  "Excel PDF": "https://drive.google.com/file/d/1_jgHEhCRVnjbwL8l9BIbcH--Nal-D-gn/view?usp=sharing",
+  "Python PDF": "https://drive.google.com/file/d/1_jgHEhCRVnjbwL8l9BIbcH--Nal-D-gn/view?usp=sharing",
+  "Power BI PDF": "https://drive.google.com/file/d/1_jgHEhCRVnjbwL8l9BIbcH--Nal-D-gn/view?usp=sharing",
+  "Tableau PDF": "https://drive.google.com/file/d/1_jgHEhCRVnjbwL8l9BIbcH--Nal-D-gn/view?usp=sharing"
 };
+
+if(course){
+  const coursesArray = course.split(",");
+
+  coursesArray.forEach(c => {
+    if(pdfLinks[c]){
+      window.open(pdfLinks[c], "_blank");
+    }
+  });
+}
+
 </script>
 
 </body>
