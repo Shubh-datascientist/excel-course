@@ -323,7 +323,8 @@ var options={
 "description":"Course Purchase",
 "handler":function(response){
 alert("Payment Successful!");
-window.location.href="success.html";
+let courseNames = cart.map(item => item.course).join(",");
+window.location.href="success.html?course="+encodeURIComponent(courseNames);
 },
 "prefill":{"name":name,"email":email}
 };
